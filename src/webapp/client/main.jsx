@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import ReactDOM from 'react-dom';
-import Root from '../imports/ui/Root';
+import App from '../imports/ui/App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 Meteor.startup(() => {
   ReactDOM.render(
-    <Root />,
+    <App />,
     document.getElementById('root')
   );
 });

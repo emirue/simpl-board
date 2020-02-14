@@ -78,10 +78,9 @@ class Login extends React.Component<any, any> {
           {this.state.hasError ? <Alert variant="danger">Login unsuccessful. Please try again.</Alert> : ''}
 
           <FormGroup controlId="username">
-            <FormLabel htmlFor="username" srOnly>Username</FormLabel>
+            <FormLabel srOnly>Username</FormLabel>
             <FormControl
               type="text"
-              id="username"
               required
               autoFocus
               placeholder="Username"
@@ -90,10 +89,9 @@ class Login extends React.Component<any, any> {
             />
           </FormGroup>
           <FormGroup controlId="password">
-            <FormLabel htmlFor="password" srOnly>Password</FormLabel>
+            <FormLabel srOnly>Password</FormLabel>
             <FormControl
               type="password"
-              id="password"
               required
               placeholder="Password"
               value={password}

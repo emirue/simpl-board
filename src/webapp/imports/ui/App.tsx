@@ -8,7 +8,6 @@ import { Meteor } from 'meteor/meteor';
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import App from './App';
 import Login from './components/Login';
 import Home from './components/Home';
 // import Admin from './components/Admin';
@@ -21,20 +20,20 @@ function forceLogin(location: any, replaceWith: (route: string) => void) {
   }
 }
 
-function Root() {
+function App() {
   return (
-    <Router>
-      <Switch>
-        <App>
+    <>
+      <Router>
+        <Switch>
           <Route path="/login" component={Login} />
           <Route path="/" component={Home} />
           {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
           {/*  <Route path="tasks" component={TasksContainer} />*/}
           {/*</Route>*/}
-        </App>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
-export default Root;
+export default App;
