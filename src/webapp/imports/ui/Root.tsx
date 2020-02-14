@@ -21,24 +21,20 @@ function forceLogin(location: any, replaceWith: (route: string) => void) {
   }
 }
 
-class Root extends React.Component<any, any> {
-  render() {
-    const { store } = this.props;
-
-    return (
-      <Router>
-        <Switch>
-          <App>
-            <Route path="/login" component={Login} />
-            <Route path="/" component={Home} />
-            {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
-            {/*  <Route path="tasks" component={TasksContainer} />*/}
-            {/*</Route>*/}
-          </App>
-        </Switch>
-      </Router>
-    );
-  }
+function Root() {
+  return (
+    <Router>
+      <Switch>
+        <App>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Home} />
+          {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
+          {/*  <Route path="tasks" component={TasksContainer} />*/}
+          {/*</Route>*/}
+        </App>
+      </Switch>
+    </Router>
+  );
 }
 
 export default Root;
