@@ -4,6 +4,7 @@
     "target": "es6",
     "allowJs": true,
     "sourceMap": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
     "types": [
       "node"

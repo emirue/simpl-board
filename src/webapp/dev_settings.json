@@ -1,0 +1,10 @@
+{
+  "public": {
+    "siteUrl": "http://localhost:9100/",
+    "siteName": "SimplBoard",
+    "defaultLanguage": "ko",
+    "storagePath": "assets/app/uploads/uploadedFiles",
+    "pageSize": 10,
+    "timezone": "Asia/Seoul"
+  }
+}
