@@ -7,5 +7,5 @@
 import '@coreui/coreui/dist/css/coreui.min.css';
 import '@coreui/icons/css/all.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
-import '../../ui/stylesheets/style.css';
+import '../../ui/stylesheets/style.min.css';
 
