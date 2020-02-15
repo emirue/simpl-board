@@ -7,7 +7,9 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "types": [
-      "node"
+      "node",
+      "jquery",
+      "bootstrap"
     ]
   },
   "exclude": [

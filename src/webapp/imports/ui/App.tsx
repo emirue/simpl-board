@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './components/Login';
 import Home from './components/Home';
+import NotFound from './components/NotFound';
 // import Admin from './components/Admin';
 // import TasksContainer from './containers/TasksContainer';
 
@@ -20,20 +21,30 @@ function forceLogin(location: any, replaceWith: (route: string) => void) {
   }
 }
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/" component={Home} />
-          {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
-          {/*  <Route path="tasks" component={TasksContainer} />*/}
-          {/*</Route>*/}
-        </Switch>
-      </Router>
-    </>
-  );
+class App extends React.Component<any, any>{
+  componentDidMount(): void {
+    const body = document.body;
+    body.classList.add('app');
+    body.classList.add('flex-row');
+    body.classList.add('align-items-center');
+  }
+
+  public render() {
+    return (
+      <>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/login" component={Login} />
+            {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
+            {/*  <Route path="tasks" component={TasksContainer} />*/}
+            {/*</Route>*/}
+            <Route component={NotFound} />
+          </Switch>
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;
