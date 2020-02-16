@@ -63,9 +63,10 @@ class App extends React.Component<any, any>{
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" component={Login} />
-            <PrivateRoute path="/admin" render={(props) => (
-              <AdminApp {...props} />
-            )} />
+            <Route path="/admin" component={AdminApp} />
+            {/*<PrivateRoute path="/admin" render={(props) => (*/}
+            {/*  <AdminApp {...props} />*/}
+            {/*)} />*/}
             {/*<Route path="/admin" component={Admin} onEnter={forceLogin}>*/}
             {/*  <Route path="tasks" component={TasksContainer} />*/}
             {/*</Route>*/}

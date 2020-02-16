@@ -5,5 +5,10 @@
  */
 
 import * as React from 'react';
-const AdminHome = () => <h1>AdminHome</h1>;
+function AdminHome() {
+  console.log(111);
+  return (
+    <h1>AdminHome</h1>
+  );
+}
 export default AdminHome;
