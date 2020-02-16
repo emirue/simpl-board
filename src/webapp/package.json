@@ -27,7 +27,7 @@
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.9.0",
-    "react-router": "^5.1.2",
+    "react-helmet-async": "^1.0.4",
     "react-router-dom": "^5.1.2",
     "simpl-schema": "^1.5.7",
     "simple-line-icons": "^2.4.1",
