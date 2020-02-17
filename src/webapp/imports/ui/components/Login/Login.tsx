@@ -76,7 +76,10 @@ class Login extends React.Component<Props, State> {
   }
 
   private handleChange<T extends keyof State, K extends State[T]>(name: T, event: React.FormEvent<HTMLInputElement>): void {
-    const { value: K } = event.currentTarget;
+    const { value } = event.currentTarget;
+    if (!value) {
+      return;
+    }
     // @ts-ignore
     this.setState({ [name]: value });
   }

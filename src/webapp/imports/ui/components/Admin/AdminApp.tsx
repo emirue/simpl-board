@@ -3,16 +3,50 @@
  * 날짜 : 2020/02/16
  * 내용 :
  */
+
 import * as React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Meteor } from 'meteor/meteor';
+// @ts-ignore
+import { useTracker } from 'meteor/react-meteor-data';
+import { Route, Switch, Redirect } from "react-router-dom";
+// @ts-ignore
+import { Loadable } from 'meteor/npdev:react-loadable';
 import AdminHome from "./Home";
 import AdminBoard from "./Board";
+import Loading from "../common/Loading";
+
+const AdminLayout = Loadable({
+  loader: () => import('../../containers/layouts/AdminLayout'),
+  loading: Loading,
+});
+
+const PrivateRoute = ({ render, ...props }) => {
+  const { userId } = useTracker(() => ({
+    userId: Meteor.isClient && Meteor.userId(),
+  }));
+  return <Route render={
+    (routeProps) => (userId
+      ? render(Object.assign({ userId }, props, routeProps))
+      : <Redirect to={{
+        pathname: '/login',
+        state: { from: props.location }
+      }} />)
+  } />
+};
 
 export default function () {
   return (
     <Switch>
-      <Route exact={true} path="/admin" component={AdminHome} />
-      <Route path="/admin/board" component={AdminBoard} />
+      <PrivateRoute exact={true} path="/admin" render={(props) => (
+        <AdminLayout title="Admin Home" {...props}>
+          <AdminHome {...props}/>
+        </AdminLayout>
+      )} />
+      <PrivateRoute path="/admin/board" render={(props) => (
+        <AdminLayout title="Admin Board" {...props}>
+          <AdminBoard {...props}/>
+        </AdminLayout>
+      )} />
     </Switch>
   );
 }

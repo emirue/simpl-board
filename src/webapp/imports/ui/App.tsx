@@ -5,41 +5,13 @@
  */
 
 import { Meteor } from 'meteor/meteor';
-// @ts-ignore
-import { useTracker } from 'meteor/npdev:collections';
-// @ts-ignore
-import { Loadable } from 'meteor/npdev:react-loadable';
 import * as React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Loading from './components/common/Loading';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './components/Login';
 import Home from './components/Home';
+import AdminApp from './components/Admin/AdminApp';
 import NotFound from './components/NotFound';
-
-const AdminLayout = Loadable({
-  loader: () => import('./containers/layouts/AdminLayout'),
-  loading: Loading,
-});
-
-const AdminApp = Loadable({
-  loader: () => import('./components/Admin/AdminApp'),
-  loading: Loading,
-});
-
-const PrivateRoute = ({ render, ...props }) => {
-  const { userId } = useTracker(() => ({
-    userId: Meteor.isClient && Meteor.userId(),
-  }));
-  return <Route render={
-    (routeProps) => (userId
-      ? render(Object.assign({ userId }, props, routeProps))
-      : <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }} />)
-  } />
-};
 
 /** Redirect to Login page when user is not logged in */
 function forceLogin(location: any, replaceWith: (route: string) => void) {
