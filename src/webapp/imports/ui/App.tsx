@@ -24,12 +24,12 @@ const AdminLayout = Loadable({
 
 const AdminApp = Loadable({
   loader: () => import('./components/Admin/AdminApp'),
-  loading: Loading
+  loading: Loading,
 });
 
 const PrivateRoute = ({ render, ...props }) => {
   const { userId } = useTracker(() => ({
-    userId: Meteor.isClient && Meteor.userId()
+    userId: Meteor.isClient && Meteor.userId(),
   }));
   return <Route render={
     (routeProps) => (userId
@@ -61,7 +61,7 @@ class App extends React.Component<any, any>{
       <>
         <Router>
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact={true} component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/admin" component={AdminApp} />
             {/*<PrivateRoute path="/admin" render={(props) => (*/}

@@ -4,17 +4,15 @@
  * 내용 :
  */
 import * as React from "react";
-import { Switch,  Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import AdminHome from "./Home";
 import AdminBoard from "./Board";
 
-export default function (props) {
-  console.log(props.path);
+export default function () {
   return (
     <Switch>
-      <Route path="/board" component={AdminBoard} />
-      <Route exact={true} path={props.path} component={AdminHome} />
+      <Route exact={true} path="/admin" component={AdminHome} />
+      <Route path="/admin/board" component={AdminBoard} />
     </Switch>
-  )
+  );
 }
-
