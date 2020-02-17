@@ -4,16 +4,16 @@
  * 내용 :
  */
 
-import * as React from "react";
+import * as React from 'react';
 import { Meteor } from 'meteor/meteor';
 // @ts-ignore
 import { useTracker } from 'meteor/react-meteor-data';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from 'react-router-dom';
 // @ts-ignore
 import { Loadable } from 'meteor/npdev:react-loadable';
-import AdminHome from "./Home";
-import AdminBoard from "./Board";
-import Loading from "../common/Loading";
+import AdminHome from './Home';
+import AdminBoard from './Board';
+import Loading from '../common/Loading';
 
 const AdminLayout = Loadable({
   loader: () => import('../../containers/layouts/AdminLayout'),
