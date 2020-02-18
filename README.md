@@ -9,6 +9,7 @@ Simple board Meteor + React + Typescript + Bootstrap
 - Scss Support
 - React Bootstrap
 - Bootstrap coreui v2
+- Font Awesome
 - Mocha tests
 
 ## Getting started
