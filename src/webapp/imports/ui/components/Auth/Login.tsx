@@ -4,9 +4,10 @@
  * 내용 : 로그인
  */
 
+import * as React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
-import * as React from 'react';
+import { Tracker } from 'meteor/tracker';
 import { Container, Row, Col, CardGroup, Card, InputGroup, Alert, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -35,6 +36,15 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     password: '',
   };
 
+  componentDidMount(): void {
+    Tracker.autorun(() => {
+      const currentUserId = Meteor.userId();
+      if (currentUserId) {
+        this.props.history.push('/');
+      }
+    });
+  }
+
   private onSubmit(e: React.FormEvent<HTMLFormElement>) {
     if (e) {
       e.preventDefault();
@@ -51,7 +61,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       if (err) {
         this.setState({ isInvalid: false, isEmailRequired: false, hasError: true, isSent: false });
       } else {
-        this.props.history.push('/admin');
+        this.props.history.push('/');
       }
     });
   }
@@ -82,7 +92,6 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     }
     // @ts-ignore
     this.setState({ [name]: value });
-    console.log(this.state);
   }
 
   public render() {
@@ -131,7 +140,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
                     />
                   </InputGroup>
                   <div className="mb-3">
-                    <Button variant="primary" className="btn-login">Login</Button>
+                    <Button type="submit" variant="primary" className="btn-login">Login</Button>
                   </div>
                   <div className="join-wrap">
                     <Button id="go-find-password" variant="link" onClick={this.forgotPassword.bind(this)}>Forgot password?</Button>

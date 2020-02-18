@@ -11,9 +11,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Route, Switch, Redirect } from 'react-router-dom';
 // @ts-ignore
 import { Loadable } from 'meteor/npdev:react-loadable';
-import AdminHome from './Home';
-import AdminBoard from './Board';
-import Loading from '../common/Loading';
+import AdminHome from './Home/AdminHome';
+import AdminBoard from './Board/AdminBoard';
+import Loading from '../Common/Loading';
 
 const AdminLayout = Loadable({
   loader: () => import('../../containers/layouts/AdminLayout'),
