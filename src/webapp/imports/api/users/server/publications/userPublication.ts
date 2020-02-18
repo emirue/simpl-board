@@ -18,6 +18,7 @@ Meteor.publish(null, function () {
   }
 });
 
+// Authorized users can manage user accounts
 Meteor.publish('users', function() {
   const user = Meteor.users.findOne({ _id: this.userId });
 
