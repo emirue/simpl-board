@@ -10,12 +10,13 @@ import * as React from 'react';
 import { Container, Row, Col, CardGroup, Card, InputGroup, Alert, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import '../../stylesheets/login.scss';
 
-interface Props {
+interface ILoginProps {
   history?: any;
 }
 
-interface State {
+interface ILoginState {
   email: string;
   hasError: boolean;
   isEmailRequired: boolean;
@@ -24,9 +25,8 @@ interface State {
   password: string;
 }
 
-class Login extends React.Component<Props, State> {
-
-  state: State = {
+class Login extends React.Component<ILoginProps, ILoginState> {
+  state: ILoginState = {
     email: '',
     hasError: false,
     isEmailRequired: false,
@@ -75,13 +75,14 @@ class Login extends React.Component<Props, State> {
     });
   }
 
-  private handleChange<T extends keyof State, K extends State[T]>(name: T, event: React.FormEvent<HTMLInputElement>): void {
+  private handleChange<T extends keyof ILoginState, K extends ILoginState[T]>(name: T, event: React.FormEvent<HTMLInputElement>): void {
     const { value } = event.currentTarget;
     if (!value) {
       return;
     }
     // @ts-ignore
     this.setState({ [name]: value });
+    console.log(this.state);
   }
 
   public render() {
@@ -99,7 +100,6 @@ class Login extends React.Component<Props, State> {
                 <Form onSubmit={this.onSubmit.bind(this)}>
                   <Card.Body>
                   <h1>Login</h1>
-                  <p className="text-muted">Sign In to your account</p>
                   <InputGroup className="mb-3">
                     <InputGroup.Prepend>
                       <span className="input-group-text">
@@ -116,7 +116,7 @@ class Login extends React.Component<Props, State> {
                       onChange={this.handleChange.bind(this, 'email')}
                     />
                   </InputGroup>
-                  <InputGroup className="mb-4">
+                  <InputGroup className="mb-3">
                     <InputGroup.Prepend>
                       <span className="input-group-text">
                         <FontAwesomeIcon icon={faLock} />
@@ -130,25 +130,15 @@ class Login extends React.Component<Props, State> {
                       onChange={this.handleChange.bind(this, 'password')}
                     />
                   </InputGroup>
-                  <Row>
-                    <Col xs={6}>
-                      <Button variant="primary" className="px-4">Login</Button>
-                    </Col>
-                    <Col xs={6} className="text-right">
-                      <Button variant="link" className="px-0" onClick={this.forgotPassword.bind(this)}>Forgot password?</Button>
-                    </Col>
-                  </Row>
-                </Card.Body>
-                </Form>
-              </Card>
-              <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
-                <Card.Body className="text-center">
-                  <div>
-                    <h2>Sign up</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <Button variant="primary" className="active mt-3">Register Now!</Button>
+                  <div className="mb-3">
+                    <Button variant="primary" className="btn-login">Login</Button>
+                  </div>
+                  <div className="join-wrap">
+                    <Button id="go-find-password" variant="link" onClick={this.forgotPassword.bind(this)}>Forgot password?</Button>
+                    <a href="/join">Join us</a>
                   </div>
                 </Card.Body>
+                </Form>
               </Card>
             </CardGroup>
           </Col>
