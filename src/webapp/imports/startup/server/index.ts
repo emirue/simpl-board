@@ -9,6 +9,7 @@ import { Accounts } from 'meteor/accounts-base';
 // @ts-ignore
 import { Roles } from 'meteor/alanning:roles';
 import UserRoles from '../both/roles/UserRoles';
+import './publications';
 
 Meteor.startup(() => {
   UserRoles.forEach(function(role: string) {
