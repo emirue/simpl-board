@@ -108,45 +108,47 @@ class Login extends React.Component<ILoginProps, ILoginState> {
               <Card className="p-4">
                 <Form onSubmit={this.onSubmit.bind(this)}>
                   <Card.Body>
-                  <h1>Login</h1>
-                  <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                      <span className="input-group-text">
-                        <FontAwesomeIcon icon={faUser} />
-                      </span>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="text"
-                      required
-                      className="form-control"
-                      autoFocus
-                      placeholder="Username"
-                      value={email}
-                      onChange={this.handleChange.bind(this, 'email')}
-                    />
-                  </InputGroup>
-                  <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                      <span className="input-group-text">
-                        <FontAwesomeIcon icon={faLock} />
-                      </span>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="password"
-                      required
-                      placeholder="Password"
-                      value={password}
-                      onChange={this.handleChange.bind(this, 'password')}
-                    />
-                  </InputGroup>
-                  <div className="mb-3">
-                    <Button type="submit" variant="primary" className="btn-login">Login</Button>
-                  </div>
-                  <div className="join-wrap">
-                    <Button id="go-find-password" variant="link" onClick={this.forgotPassword.bind(this)}>Forgot password?</Button>
-                    <a href="/join">Join us</a>
-                  </div>
-                </Card.Body>
+                    <div className="login-title">
+                      <a href="/">Login</a>
+                    </div>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Prepend>
+                        <span className="input-group-text">
+                          <FontAwesomeIcon icon={faUser} />
+                        </span>
+                      </InputGroup.Prepend>
+                      <Form.Control
+                        type="text"
+                        required
+                        className="form-control"
+                        autoFocus
+                        placeholder="Username"
+                        value={email}
+                        onChange={this.handleChange.bind(this, 'email')}
+                      />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Prepend>
+                        <span className="input-group-text">
+                          <FontAwesomeIcon icon={faLock} />
+                        </span>
+                      </InputGroup.Prepend>
+                      <Form.Control
+                        type="password"
+                        required
+                        placeholder="Password"
+                        value={password}
+                        onChange={this.handleChange.bind(this, 'password')}
+                      />
+                    </InputGroup>
+                    <div className="mb-3">
+                      <Button type="submit" variant="primary" className="btn-login">Login</Button>
+                    </div>
+                    <div className="join-wrap">
+                      <Button id="go-find-password" variant="link" onClick={this.forgotPassword.bind(this)}>Forgot password?</Button>
+                      <a href="/join">Join us</a>
+                    </div>
+                  </Card.Body>
                 </Form>
               </Card>
             </CardGroup>

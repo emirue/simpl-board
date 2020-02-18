@@ -22,7 +22,7 @@ function forceLogin(location: any, replaceWith: (route: string) => void) {
 
 class App extends React.Component<any, any>{
   componentDidMount(): void {
-    const body = document.body;
+    const body: HTMLElement = document.body;
     body.classList.add('app');
     body.classList.add('flex-row');
     body.classList.add('align-items-center');
