@@ -4,4 +4,4 @@
  * 내용 : server main
  */
 
-// import '../imports/startup/server/index';
+import '../imports/startup/server/index';

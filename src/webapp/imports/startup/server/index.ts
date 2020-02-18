@@ -8,8 +8,12 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 // @ts-ignore
 import { Roles } from 'meteor/alanning:roles';
+import UserRoles from '../both/roles/UserRoles';
 
 Meteor.startup(() => {
+  UserRoles.forEach(function(role: string) {
+    Roles.createRole(role, {unlessExists: true});
+  });
   const adminUser = Meteor.users.findOne({ username: 'admin' });
   if (!adminUser) {
     console.warn(
@@ -23,6 +27,13 @@ Meteor.startup(() => {
       username: 'admin',
     });
 
-    Roles.addUsersToRoles(userId, ['admin']);
+    Meteor.users.update({_id: userId}, {
+      $set: {
+        'emails.0.verified': true,
+      },
+    });
+
+    // 모든 권한을 갖는다.
+    Roles.addUsersToRoles(userId, UserRoles);
   }
 });
