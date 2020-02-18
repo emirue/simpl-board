@@ -12,6 +12,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import Header from "../common/Header";
 import '../../stylesheets/home.scss';
 
 library.add(
@@ -21,10 +22,11 @@ library.add(
 function Home() {
   return (
     <>
+      <Header />
       <section id="frameworks">
         <Container className="home-container text-center">
-          <h2 className="section-header">Simpl Board</h2>
-          <div className="section-desc">inside</div>
+          <h2 className="section-header mb-0">Simpl Board Application</h2>
+          <div className="section-desc">What's inside</div>
           <Row>
             <Col className="col-6" sm={true}>
               <div className="mb-2">

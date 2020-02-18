@@ -28,7 +28,7 @@ class App extends React.Component<any, any>{
     body.classList.add('align-items-center');
   }
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <>
         <Router>
