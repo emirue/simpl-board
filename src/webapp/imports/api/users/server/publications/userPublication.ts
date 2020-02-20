@@ -23,7 +23,7 @@ Meteor.publish('users', function() {
   const user = Meteor.users.findOne({ _id: this.userId });
 
   // 관리자 및 사용자 관리권한이 있는 경우
-  if (Roles.userInRole(user, ['admin', 'manage-users'])) {
+  if (Roles.userIsInRole(user, ['admin', 'manage-users'])) {
     console.log('publishing users', this.userId);
     return [
       // @ts-ignore

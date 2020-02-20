@@ -7,10 +7,12 @@
 import { Meteor } from 'meteor/meteor';
 import * as React from 'react';
 import { Navbar, NavbarBrand, Nav } from 'react-bootstrap';
-import { useTracker } from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
+// @ts-ignore
+import { Roles } from 'meteor/alanning:roles';
 
-function Header(): JSX.Element {
-  const currentUser = useTracker(() => Meteor.user(), []);
+function Header({currentUser, isLoading, isAdmin}): JSX.Element {
+
   return (
     <Navbar bg="light" expand="lg">
       <NavbarBrand href="/">Simpl Board</NavbarBrand>
@@ -18,6 +20,7 @@ function Header(): JSX.Element {
       <Navbar.Collapse className="justify-content-end">
         {currentUser ?
           <>
+            {isAdmin && <Nav.Link href="/admin">Admin</Nav.Link>}
             <Nav.Link href="/logout">Logout</Nav.Link>
             <Nav.Link href="/settings">Settings</Nav.Link>
           </> :
@@ -31,4 +34,12 @@ function Header(): JSX.Element {
   );
 }
 
-export default Header;
+export default withTracker(() => {
+  const handle = Meteor.subscribe('users');
+
+  return {
+    currentUser: Meteor.user(),
+    isLoading: !handle.ready(),
+    isAdmin: Roles.userIsInRole(Meteor.userId(), ['admin']),
+  };
+})(Header);
