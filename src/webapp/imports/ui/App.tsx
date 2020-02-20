@@ -9,9 +9,11 @@ import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home/Home';
-import AuthRoutes from './routes/AuthRoutes';
 import AdminApp from './components/Admin/AdminApp';
 import NotFound from './components/NotFound';
+import Login from "./components/Auth/Login";
+import Logout from "./components/Auth/Logout";
+import Join from "./components/Auth/Join";
 
 /** Redirect to Login page when user is not logged in */
 function forceLogin(location: any, replaceWith: (route: string) => void) {
@@ -29,12 +31,15 @@ class App extends React.Component<any, any>{
   }
 
   public render(): JSX.Element {
+    console.log('app');
     return (
       <>
         <Router>
           <Switch>
             <Route path="/" exact={true} component={Home} />
-            <AuthRoutes/>
+            <Route path="/login" component={Login} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/join" component={Join} />
             <Route path="/admin" component={AdminApp} />
             {/*<PrivateRoute path="/admin" render={(props) => (*/}
             {/*  <AdminApp {...props} />*/}

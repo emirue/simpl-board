@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 function AdminHome() {
-  console.log(111);
+  console.log('home');
   return (
     <h1>AdminHome</h1>
   );

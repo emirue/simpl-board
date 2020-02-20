@@ -9,16 +9,9 @@ import { Meteor } from 'meteor/meteor';
 // @ts-ignore
 import { useTracker } from 'meteor/react-meteor-data';
 import { Route, Switch, Redirect } from 'react-router-dom';
-// @ts-ignore
-import { Loadable } from 'meteor/npdev:react-loadable';
 import AdminHome from './Home/AdminHome';
 import AdminBoard from './Board/AdminBoard';
-import Loading from '../Common/Loading';
-
-const AdminLayout = Loadable({
-  loader: () => import('../../containers/layouts/AdminLayout'),
-  loading: Loading,
-});
+import AdminLayout from '../../containers/layouts/AdminLayout';
 
 const PrivateRoute = ({ render, ...props }) => {
   const { userId } = useTracker(() => ({
@@ -34,7 +27,7 @@ const PrivateRoute = ({ render, ...props }) => {
   } />
 };
 
-export default function () {
+function AdminApp(): JSX.Element {
   return (
     <Switch>
       <PrivateRoute exact={true} path="/admin" render={(props) => (
@@ -50,3 +43,5 @@ export default function () {
     </Switch>
   );
 }
+
+export default AdminApp;

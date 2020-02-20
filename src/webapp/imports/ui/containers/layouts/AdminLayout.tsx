@@ -5,20 +5,19 @@
  */
 
 import * as React from 'react';
-import { Helmet } from 'react-helmet-async';
-import AdminHeader from "./AdminHeader";
+import AdminHeader from "../../containers/layouts/AdminHeader";
 
 class AdminLayout extends React.Component<any, any>{
   render(): {} {
     const { children } = this.props;
 
     return (
-      <Helmet>
+      <>
         <AdminHeader/>
         <main className="main">
           {children}
         </main>
-      </Helmet>
+      </>
     );
   }
 }
