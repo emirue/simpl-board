@@ -5,6 +5,7 @@
  */
 
 const UserRoles: string[] = [
+  'super',
   'admin',
   'board-edit',
   'board-delete',

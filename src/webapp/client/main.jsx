@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import ReactDOM from 'react-dom';
 import App from '../imports/ui/App';
 import '../imports/startup/client/index';
+import '../imports/startup/both/index';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 Meteor.startup(() => {

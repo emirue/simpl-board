@@ -5,4 +5,5 @@
  */
 
 import './createAccounts';
+import './methods';
 import './publications';

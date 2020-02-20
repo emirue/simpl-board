@@ -10,7 +10,7 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import CommonModal from '../../client/common/CommonModal';
 
 export default class CommonMethod extends ValidatedMethod {
-  constructor(param: { name: string; run({_id, log}: { _id?: any; log?: any }): void; validate: any }) {
+  constructor(param: { name: string; run(params: any): void; validate: any }) {
     super();
   }
 
