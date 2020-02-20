@@ -6,6 +6,8 @@
 
 import * as React from 'react';
 import { Navbar, NavbarBrand, Nav, NavDropdown } from 'react-bootstrap';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 function AdminHeader(): JSX.Element {
   return (
@@ -22,7 +24,9 @@ function AdminHeader(): JSX.Element {
         </NavDropdown>
       </Nav>
       <Navbar.Collapse className="justify-content-end">
-        <Nav.Link href="/">Page</Nav.Link>
+        <Nav.Link href="/">
+          <FontAwesomeIcon icon={faHome} />
+        </Nav.Link>
         <Nav.Link href="/logout">Logout</Nav.Link>
         <Nav.Link href="/settings">Settings</Nav.Link>
       </Navbar.Collapse>
