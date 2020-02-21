@@ -21,6 +21,9 @@ static-html             # Define static page content in .html files
 react-meteor-data       # React higher-order component for reactively tracking Meteor data
 server-render
 
+ostrio:logger
+ostrio:loggermongo
+
 mdg:validated-method
 fourseven:scss
 accounts-password

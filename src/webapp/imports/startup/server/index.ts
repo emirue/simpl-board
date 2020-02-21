@@ -4,6 +4,7 @@
  * 내용 : server index
  */
 
+import './logger';
 import './createAccounts';
 import './methods';
 import './publications';
