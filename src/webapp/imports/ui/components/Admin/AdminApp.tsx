@@ -11,7 +11,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AdminHome from './Home/AdminHome';
 import AdminBoard from './Board/AdminBoard';
-import AdminLayout from '../../containers/layouts/AdminLayout';
+import AdminLayout from './Common/AdminLayout';
 
 const PrivateRoute = ({ render, ...props }) => {
   const { userId } = useTracker(() => ({

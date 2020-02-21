@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import { Container, Row, Col, Card, Nav } from 'react-bootstrap';
-import AdminNav from "../../../containers/layouts/AdminNav";
+import AdminNav from "../Common/AdminNav";
 import '../../../stylesheets/admin-home.scss';
 
 function AdminHome() {

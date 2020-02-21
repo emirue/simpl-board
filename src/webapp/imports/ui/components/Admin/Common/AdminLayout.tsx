@@ -5,8 +5,8 @@
  */
 
 import * as React from 'react';
-import AdminHeader from "../../containers/layouts/AdminHeader";
-import '../../stylesheets/admin.scss';
+import AdminHeader from "./AdminHeader";
+import '../../../stylesheets/admin.scss';
 
 class AdminLayout extends React.Component<any, any>{
   render(): {} {
