@@ -7,7 +7,7 @@
 import { Meteor } from 'meteor/meteor';
 // @ts-ignore
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import CommonModal from '../../client/common/CommonModal';
+import ModalLib from '../../client/common/ModalLib';
 
 export default class CommonMethod extends ValidatedMethod {
   constructor(param: { name: string; run(params: any): void; validate: any }) {
@@ -16,11 +16,11 @@ export default class CommonMethod extends ValidatedMethod {
 
   call(args, callback){
     if(Meteor.isClient){
-      CommonModal.showLoading();
+      ModalLib.showLoading();
       super.call(args, function(err, res){
-        CommonModal.hideLoading();
+        ModalLib.hideLoading();
         if(err){
-          CommonModal.alert(err.reason || err.message || err.error || err);
+          ModalLib.alert(err.reason || err.message || err.error || err);
         }
 
         if(callback && typeof callback === "function") {

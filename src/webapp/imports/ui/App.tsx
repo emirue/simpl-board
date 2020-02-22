@@ -14,6 +14,7 @@ import NotFound from './components/NotFound';
 import Login from "./components/Auth/Login";
 import Logout from "./components/Auth/Logout";
 import Join from "./components/Auth/Join";
+import ExtendApp from "./ExtendApp";
 
 /** Redirect to Login page when user is not logged in */
 function forceLogin(location: any, replaceWith: (route: string) => void) {
@@ -50,6 +51,7 @@ class App extends React.Component<any, any>{
             <Route component={NotFound} />
           </Switch>
         </Router>
+        <ExtendApp/>
       </>
     );
   }
