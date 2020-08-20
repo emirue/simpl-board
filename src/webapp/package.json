@@ -18,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@types/bunyan": "^1.8.6",
     "@types/bunyan-prettystream": "^0.1.31",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "bootstrap": "^4.4.1",
     "bootstrap-sass": "^3.4.1",
     "bunyan": "^1.8.12",
